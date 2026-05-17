@@ -99,9 +99,6 @@
 
   # Services
   services.openssh.enable = true;
-  services.mpd = {
-    enable = true;
-  };
 
   system.stateVersion = "25.11";
 }

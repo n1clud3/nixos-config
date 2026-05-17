@@ -4,6 +4,7 @@
   imports = [
     ./../../modules/home/n1hypr.nix
     ./../../modules/home/zeditor.nix
+    ./../../modules/home/mpd.nix
   ];
 
   home.username = "niclude";
@@ -54,6 +55,8 @@
   };
 
   n1hypr.enable = true;
+  mpd.enable = true;
+  mpd.musicDir = "/mnt/shared/Music";
 
   home.shell.enableZshIntegration = true;
 
