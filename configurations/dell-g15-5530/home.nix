@@ -1,6 +1,11 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
+  imports = [
+    ./../../modules/home/n1hypr.nix
+    ./../../modules/home/zeditor.nix
+  ];
+
   home.username = "niclude";
   home.homeDirectory = "/home/niclude";
   home.stateVersion = "25.11";
@@ -48,37 +53,15 @@
     EDITOR = "vim";
   };
 
+  n1hypr.enable = true;
+
   home.shell.enableZshIntegration = true;
-
-  programs.zed-editor = {
-    enable = true;
-    extensions = [
-      "nix"
-      "github-theme"
-    ];
-    extraPackages = [
-      pkgs.nixd
-      pkgs.nil
-    ];
-    userSettings = import ./zed-settings.nix;
-  };
-
-  wayland.windowManager.hyprland = {
-    enable = true;
-    configType = "hyprlang";
-    settings = import ./hyprland-settings.nix;
-  };
-
-  programs.rofi = {
-    enable = true;
-  };
 
   nixpkgs.config.allowUnfree = true;
 
-  programs.ghostty.enable = true;
+  zeditor.enable = true;
+  services.ollama.enable = true;
   programs.vesktop.enable = true;
-  programs.yazi.enable = true;
-  programs.btop.enable = true;
   programs.obsidian.enable = true;
   programs.git = {
     enable = true;
@@ -103,5 +86,4 @@
   };
 
   services.playerctld.enable = true;
-  services.ollama.enable = true;
 }
