@@ -10,11 +10,3 @@ A configuration for the Linux system of my dreams :3
   ```bash
   nixos-rebuild switch --flake /path/to/repo#niclude-laptop # Laptop configuration
   ```
-
-## To-do
-
-- Migrate hyprland config to Lua
-- Rework config file structure
-- `Eww` dekstop bar
-- Proper theming
-- *something more...*
