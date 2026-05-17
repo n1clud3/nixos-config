@@ -90,6 +90,18 @@
     };
   };
 
+  programs.ssh = {
+    enable = true;
+    matchBlocks = {
+      "github.com" = {
+        hostname = "github.com";
+        user = "git";
+        identityFile = "~/.ssh/id_github";
+        identitiesOnly = true;
+      };
+    };
+  };
+
   services.playerctld.enable = true;
   services.ollama.enable = true;
 }
