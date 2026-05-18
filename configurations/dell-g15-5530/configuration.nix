@@ -13,13 +13,13 @@
     inputs.home-manager.nixosModules.default
   ];
 
-  hybrid-gpu = {
+  n1.hybrid-gpu = {
     enable = true;
     intelBusId = "PCI:0:2:0";
     nvidiaBusId = "PCI:1:0:0";
   };
 
-  n1hypr.enable = true;
+  n1.hyprland.enable = true;
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;

@@ -7,8 +7,8 @@
   ...
 }:
 {
-  options.n1hypr.enable = lib.mkEnableOption "Enable system options for the home n1hypr module.";
-  config = lib.mkIf config.n1hypr.enable {
+  options.n1.hyprland.enable = lib.mkEnableOption "Enable system options for the home n1hypr module.";
+  config = lib.mkIf config.n1.hyprland.enable {
     programs.thunar.enable = true;
     programs.hyprland.enable = true;
 

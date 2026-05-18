@@ -54,15 +54,15 @@
     EDITOR = "vim";
   };
 
-  n1hypr.enable = true;
-  mpd.enable = true;
-  mpd.musicDir = "/mnt/shared/Music";
+  n1.hyprland.enable = true;
+  n1.mpd.enable = true;
+  n1.mpd.musicDir = "/mnt/shared/Music";
 
   home.shell.enableZshIntegration = true;
 
   nixpkgs.config.allowUnfree = true;
 
-  zeditor.enable = true;
+  n1.zeditor.enable = true;
   services.ollama.enable = true;
   programs.vesktop.enable = true;
   programs.obsidian.enable = true;

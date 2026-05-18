@@ -5,10 +5,10 @@
   ...
 }:
 {
-  options.n1hypr = {
+  options.n1.hyprland = {
     enable = lib.mkEnableOption "Enable n1clude's Hyprland DE.";
   };
-  config = lib.mkIf config.n1hypr.enable {
+  config = lib.mkIf config.n1.hyprland.enable {
     wayland.windowManager.hyprland = {
       enable = true;
       configType = "hyprlang";

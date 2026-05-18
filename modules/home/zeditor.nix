@@ -7,9 +7,9 @@
   ...
 }:
 {
-  options.zeditor.enable = lib.mkEnableOption "Enable Zed editor.";
+  options.n1.zeditor.enable = lib.mkEnableOption "Enable Zed editor.";
 
-  config = lib.mkIf config.zeditor.enable {
+  config = lib.mkIf config.n1.zeditor.enable {
     programs.zed-editor = {
       enable = true;
       extensions = [

@@ -8,7 +8,7 @@
   ...
 }:
 {
-  options.hybrid-gpu = {
+  options.n1.hybrid-gpu = {
     enable = lib.mkEnableOption "Enable support for hybrid GPU setups.";
     intelBusId = lib.mkOption {
       type = lib.types.strMatching "([[:print:]]+:[0-9]{1,3}(@[0-9]{1,10})?:[0-9]{1,2}:[0-9])?";
@@ -20,7 +20,7 @@
     };
   };
 
-  config = lib.mkIf config.hybrid-gpu.enable {
+  config = lib.mkIf config.n1.hybrid-gpu.enable {
     services.xserver.videoDrivers = [
       "modesetting"
       "nvidia"
@@ -55,8 +55,8 @@
           enableOffloadCmd = true;
         };
 
-        intelBusId = config.hybrid-gpu.intelBusId;
-        nvidiaBusId = config.hybrid-gpu.nvidiaBusId;
+        intelBusId = config.n1.hybrid-gpu.intelBusId;
+        nvidiaBusId = config.n1.hybrid-gpu.nvidiaBusId;
       };
     };
 
