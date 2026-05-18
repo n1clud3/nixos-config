@@ -7,6 +7,10 @@
 {
   options.n1.hyprland = {
     enable = lib.mkEnableOption "Enable n1clude's Hyprland DE.";
+    wallpaper = lib.mkOption {
+      type = lib.types.path;
+      description = "Path to the wallpaper for use with Hyprpaper.";
+    };
   };
   config = lib.mkIf config.n1.hyprland.enable {
     wayland.windowManager.hyprland = {
@@ -93,6 +97,19 @@
       font = {
         name = "Sans";
         size = 11;
+      };
+    };
+
+    services.hyprpaper = {
+      enable = true;
+      settings = {
+        splash = false;
+        wallpaper = [
+          {
+            monitor = "";
+            path = config.n1.hyprland.wallpaper;
+          }
+        ];
       };
     };
   };
