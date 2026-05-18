@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 {
   options.n1hypr = {
     enable = lib.mkEnableOption "Enable n1clude's Hyprland DE.";
@@ -16,6 +21,7 @@
           "$mod, T, exec, ghostty" # terminal
           "$mod, R, exec, rofi -show drun" # menu
           "$mod, B, exec, firefox" # browser
+          "$mod, E, exec, thunar" # file manager
           "$mod, F, fullscreen"
           "$mod, M, exec, command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"
           "ALT, F4, killactive" # Alt+F4 functionality from Windows
@@ -62,5 +68,32 @@
     programs.rofi.enable = true;
     programs.ghostty.enable = true;
     programs.btop.enable = true;
+
+    home.pointerCursor = {
+      gtk.enable = true;
+      # x11.enable = true;
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 16;
+    };
+
+    gtk = {
+      enable = true;
+
+      theme = {
+        package = pkgs.flat-remix-gtk;
+        name = "Flat-Remix-GTK-Grey-Darkest";
+      };
+
+      iconTheme = {
+        package = pkgs.adwaita-icon-theme;
+        name = "Adwaita";
+      };
+
+      font = {
+        name = "Sans";
+        size = 11;
+      };
+    };
   };
 }
