@@ -33,6 +33,8 @@
           # Monocle layout controls
           "$mod, right, layoutmsg, cyclenext"
           "$mod, left, layoutmsg, cycleprev"
+
+          "$mod, X, sendshortcut, ALT, x, class:^(vesktop)$" # Discord Push-to-talk
         ];
         bindel = [
           ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
