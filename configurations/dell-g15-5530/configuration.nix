@@ -77,7 +77,6 @@
   nixpkgs.config.allowUnfree = true;
 
   programs.zsh.enable = true;
-  programs.firefox.enable = true;
   programs.steam = {
     enable = true;
     extraCompatPackages = with pkgs; [

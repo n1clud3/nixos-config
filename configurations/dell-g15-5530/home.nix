@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -32,6 +32,7 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    inputs.helium.packages.${pkgs.system}.default
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

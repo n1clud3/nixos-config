@@ -24,7 +24,7 @@
         bind = [
           "$mod, T, exec, ghostty" # terminal
           "$mod, R, exec, rofi -show drun" # menu
-          "$mod, B, exec, firefox" # browser
+          "$mod, B, exec, helium" # browser
           "$mod, E, exec, thunar" # file manager
           "$mod, F, fullscreen"
           "$mod, M, exec, command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"
