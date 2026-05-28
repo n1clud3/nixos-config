@@ -18,6 +18,22 @@
     services.mpd = {
       enable = true;
       musicDirectory = config.n1.mpd.musicDir;
+
+      extraConfig = ''
+        audio_output {
+          type     "pipewire"
+          name     "PipeWire Output"
+        }
+
+        # Buffer tuning - helps with track transitions
+        audio_buffer_size   "8192"
+        buffer_before_play  "10%"
+
+        # Quality of life
+        restore_paused  "yes"
+        auto_update     "yes"
+        replaygain      "auto"
+      '';
     };
 
     home.packages = with pkgs; [
