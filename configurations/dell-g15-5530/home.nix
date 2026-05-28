@@ -58,6 +58,10 @@
   n1.hyprland.wallpaper = "/mnt/shared/Pictures/background.jpg";
   n1.mpd.enable = true;
   n1.mpd.musicDir = "/mnt/shared/Music";
+  n1.mpd.lastfm = {
+    enable = true;
+    username = "TriPixel";
+  };
 
   home.shell.enableZshIntegration = true;
 
