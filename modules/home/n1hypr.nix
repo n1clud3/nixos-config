@@ -35,6 +35,10 @@
           "$mod, left, layoutmsg, cycleprev"
 
           "$mod, X, sendshortcut, ALT, x, class:^(vesktop)$" # Discord Push-to-talk
+
+          # Screenshot
+          ", PRINT, exec, hyprshot -m region"
+          "$mod, PRINT, exec, hyprshot -m output -m eDP-1"
         ];
         bindel = [
           ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
@@ -74,6 +78,7 @@
     programs.rofi.enable = true;
     programs.ghostty.enable = true;
     programs.btop.enable = true;
+    programs.hyprshot.enable = true;
 
     home.pointerCursor = {
       gtk.enable = true;
