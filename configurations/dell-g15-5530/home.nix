@@ -33,6 +33,9 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     inputs.helium.packages.${pkgs.system}.default
+    pkgs.yt-dlp
+    pkgs.picard
+    pkgs.qbittorrent
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
