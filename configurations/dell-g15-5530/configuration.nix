@@ -22,11 +22,28 @@
   n1.hyprland.enable = true;
 
   # Bootloader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.memtest86.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/efi";
-  boot.loader.systemd-boot.xbootldrMountPoint = "/boot";
+  # boot.loader.systemd-boot.enable = true;
+  # boot.loader.systemd-boot.memtest86.enable = true;
+  # boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.efi.efiSysMountPoint = "/efi";
+  # boot.loader.systemd-boot.xbootldrMountPoint = "/boot";
+  boot.loader.efi = {
+    canTouchEfiVariables = true;
+    efiSysMountPoint = "/efi";
+  };
+
+  boot.loader.limine = {
+    enable = true;
+    efiSupport = true;
+    secureBoot.enable = true;
+    maxGenerations = 10;
+
+    extraEntries = ''
+      /Windows
+          protocol: efi_chainload
+          image_path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
+    '';
+  };
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -88,6 +105,7 @@
     vim
     wget
     curl
+    sbctl
   ];
 
   programs.mtr.enable = true;
