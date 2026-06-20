@@ -92,6 +92,13 @@
         identityFile = "~/.ssh/id_github";
         identitiesOnly = true;
       };
+
+      "codeberg.org" = {
+        hostname = "codeberg.org";
+        user = "git";
+        identityFile = "~/.ssh/id_codeberg";
+        identitiesOnly = true;
+      };
     };
   };
 
