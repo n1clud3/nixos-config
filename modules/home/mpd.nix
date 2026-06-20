@@ -57,6 +57,7 @@
 
     home.packages = with pkgs; [
       euphonica
+      ario
     ];
   };
 }
