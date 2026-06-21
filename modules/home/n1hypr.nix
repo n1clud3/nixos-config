@@ -58,7 +58,13 @@
     ];
 
     programs.rofi.enable = true;
-    programs.ghostty.enable = true;
+    programs.ghostty = {
+      enable = true;
+      enableZshIntegration = true;
+      settings = {
+        theme = "Gruvbox Material Dark";
+      };
+    };
     programs.btop.enable = true;
     programs.hyprshot.enable = true;
     programs.imv.enable = true;
