@@ -13,9 +13,6 @@
     };
   };
   config = lib.mkIf config.n1.hyprland.enable {
-    #home.file = {
-    #  ".config/hypr/hyprland.lua".source = ../../hyprland/hyprland.lua;
-    #};
     wayland.windowManager.hyprland = {
       enable = true;
       configType = "lua";
@@ -30,6 +27,32 @@
       };
     };
 
+    xdg.mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "text/html" = [ "helium.desktop" ];
+        "x-scheme-handler/http" = [ "helium.desktop" ];
+        "x-scheme-handler/https" = [ "helium.desktop" ];
+        "application/pdf" = [ "helium.desktop" ];
+        "image/png" = [ "imv.desktop" ];
+        "image/jpeg" = [ "imv.desktop" ];
+        "x-scheme-handler/discord" = [ "vesktop.desktop" ];
+      };
+    };
+
+    xdg.userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
+
+    # TODO: modularize later
+    home.file = {
+      "Music".source = config.lib.file.mkOutOfStoreSymlink "/mnt/shared/Music";
+      "Pictures".source = config.lib.file.mkOutOfStoreSymlink "/mnt/shared/Pictures";
+      "Videos".source = config.lib.file.mkOutOfStoreSymlink "/mnt/shared/Videos";
+      "Projects".source = config.lib.file.mkOutOfStoreSymlink "/mnt/shared/Projects";
+    };
+
     home.packages = [
       pkgs.hyprshutdown
     ];
@@ -38,6 +61,7 @@
     programs.ghostty.enable = true;
     programs.btop.enable = true;
     programs.hyprshot.enable = true;
+    programs.imv.enable = true;
     programs.yazi = {
       enable = true;
       enableZshIntegration = true;
